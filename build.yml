@@ -17,3 +17,6 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Test with Maven
       run: mvn -B test
+
+- name: Create build status badge
+  run: curl -s "https://img.shields.io/badge/build-$([ ${{ job.status }} == 'success' ]] && echo 'passing-green' || echo 'failing-red').svg" > build-status.svg
